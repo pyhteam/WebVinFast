@@ -1,0 +1,101 @@
+
+/* --------------- Media query for 800 -------------- */
+@media only screen and (max-width: 800px){
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #333;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li{
+        color: #fff;
+    }
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+
+    .NEW{
+        width: 100%;
+        padding: 0px;
+    }
+
+    .column, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+
+    .left-column,.right-column{
+        width: 100%;
+        padding: 0px;
+        }
+}
+
+
+/* --------------- Media query FOR less than 600 screen  -------------- */
+@media only screen and (max-width: 600px){
+    .row{
+        text-align: center;
+    }
+    .col-2, .col-3, .col-4{
+        flex-basis: 100%;
+    }
+    .single-product .row{
+        text-align: left;
+    }
+    .single-product .col-2{
+        padding: 20px 0;
+    }
+    .single-product h1{
+        font-size: 26px;
+        line-height: 32px;
+    }
+    .cart-info p{
+        display: none;
+    }
+  
+  
+    .NEW{
+      width: 100%;
+      padding: 20px;
+      
+  }
+  
+  .NEW img{
+      width: 100%;
+  }    
+  
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .left-column,.right-column{
+    width: 100%;
+    padding: 0px;
+	}
+  }
+  
+
+  /* Responsive thông tin cá nhân  */
+@media (max-width:420px) {
+    .wrapper .form .inputfield{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .wrapper .form .inputfield label{
+      margin-bottom: 5px;
+    }
+    .wrapper .form .inputfield.terms{
+      flex-direction: row;
+    }
+  }

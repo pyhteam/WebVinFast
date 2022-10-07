@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Web.VinFast.DTOs.CarCategoryView>
+<div class="small-container">
+    @foreach (var item in Model)
+    {
+        <h2 class="title">@item.Name</h2>
+        @if (item.Cars != null)
+        {
+            <div class="row">
+                @foreach (var car in item.Cars)
+                {
+
+                    <div class="col-4">
+                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id" class="img-fluid" />
+                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">
+                            <h4>@car.Name</h4>
+                        </a>
+                        <p>@car.Price VND</p>
+                    </div>
+
+                }
+            </div>
+        }
+    }
+</div>
