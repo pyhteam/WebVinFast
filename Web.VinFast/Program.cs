@@ -43,6 +43,10 @@ app.UseCookiePolicy();
 app.UseAuthentication();
 
 app.UseAuthorization();
+app.MapAreaControllerRoute(
+    name: "Admin",
+    areaName: "Admin",
+    pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
