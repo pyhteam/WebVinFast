@@ -1,5 +1,40 @@
 ﻿@model IEnumerable<Web.VinFast.DTOs.CarCategoryView>
-<div class="small-container">
+
+@section Content{
+    <div class="row">
+        <div class="col-2">
+            <h1>"VINFAST" <br>Mãnh liệt tinh thần Việt Nam</h1>
+            <p>
+                Luôn đem đến cho Khách hàng những trải nghiệm thú vị, thân thiện, tin tưởng
+                <br>mang đến sự thuận tiện và thái độ phục vụ đẳng cấp “5 sao”
+                để mang đến sự hài lòng cao nhất cho khách hàng.
+            </p>
+            <a href="news2.html" class="btn">Khám phá ngay &#8594;</a>
+        </div>
+        <div class="col-2">
+            <img src="~/assets/images/car-president/CE11 (1).png">
+        </div>
+    </div>
+    }
+    <!-- ------------- featured categorries ---------------- -->
+    <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="~/assets//images/car-president/CE12.png">
+                </div>
+                <div class="col-3">
+                    <img src="~/assets//images/car-lux-sa/CE15.png">
+                </div>
+                <div class="col-3">
+                    <img src="~/assets//images/car-lux-a/CE16.png">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="small-container">
     @foreach (var item in Model)
     {
         <h2 class="title">@item.Name</h2>

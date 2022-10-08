@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Web.VinFast.Models.Car>
+
+<div class="blog">
+    <h1>Tất cả sản phẩm</h1>
+</div>
+
+<div class="small-container">
+
+    <div class="row row-2">
+        <h2>TẤT CẢ SẢN PHẨM</h2>
+        <select>
+            <option> Shop</option>
+            <option>Theo giá</option>
+            <option>Theo sản phẩm</option>
+            <option>Theo Người dùng</option>
+        </select>
+    </div>
+
+    <div class="row">
+        @if (@Model != null)
+        {
+            foreach (var item in @Model)
+            {
+                <div class="col-4">
+                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id">
+                        <img src="@item.Image">
+                    </a>
+                    <h4>@item.Name</h4>
+                    <p>@item.Price VND</p>
+                </div>
+            }
+        }
+
+
+    </div>
+
+    <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>&#8594;</span>
+    </div>
+</div>

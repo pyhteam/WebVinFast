@@ -1,0 +1,108 @@
+﻿<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/assets/images/car-lux-a/CE14.png" width="100%">
+            </div>
+
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Đăng nhập</span>
+                        <span onclick="register()">Đăng Ký</span>
+                        <hr id="Indicator">
+                    </div>
+
+                    <form id="LoginForm">
+                        <input type="email" id="email" placeholder="Email">
+                        <input type="password" id="password" placeholder="Password">
+                        <button type="submit" id="btnLogin" class="btn">Đăng nhập</button>
+
+                    </form>
+
+                    <form id="RegForm">
+                        <input type="text" id="name" placeholder="Name">
+                        <input type="email" id="emailRegister" placeholder="Email">
+                        <input type="password" id="passwordRegister" placeholder="Password">
+                        <button type="submit" id="btnRegister" class="btn">Đăng ký</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
+
+    function register() {
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+
+    }
+    function login() {
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+    }
+</script>
+<script>
+    // login ajax
+    $(document).ready(function () {
+
+
+        $("#btnLogin").click(function (e) {
+            e.preventDefault();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var userLogin = {
+                email: email,
+                password: password
+            };
+            $.ajax({
+                url: "/Home/Login",
+                type: "POST",
+                data: userLogin,
+                success: function (data) {
+                    if (data.status == 200) {
+                        alert("Đăng nhập thành công");
+                        window.location.href = "/Home/Index";
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+
+        // register ajax
+        $("#btnRegister").click(function (e) {
+            e.preventDefault();
+            var name = $("#name").val();
+            var email = $("#emailRegister").val();
+            var password = $("#passwordRegister").val();
+            var userRegister = {
+                name: name,
+                email: email,
+                password: password
+            };
+            $.ajax({
+                url: "/Home/Register",
+                type: "POST",
+                data: userRegister,
+                success: function (data) {
+                    if (data.status == 200) {
+                        alert("Đăng ký thành công");
+                        window.location.href = "/Home/Login";
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+    });
+</script>

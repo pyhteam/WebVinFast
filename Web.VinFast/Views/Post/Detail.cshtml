@@ -1,0 +1,15 @@
+﻿@model Web.VinFast.Models.Post
+<!-- News detal -->
+<div class="NEW">
+    <h1>
+        @Model.Title
+    </h1>
+    <br />
+    <br />
+    <p>
+        @Model.Content.Substring(0,50)
+    </p>
+    <img width="300px" src="@Model.Image" />
+    <br />
+    @Model.Content
+</div>

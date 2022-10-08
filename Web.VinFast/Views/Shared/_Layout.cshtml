@@ -1,10 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VINFAST | TRANG CHỦ</title>
     <link rel="stylesheet" href="~/assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -19,52 +23,26 @@
                 <nav>
                     <ul id="MenuItems">
                         <li><a href="/">Trang chủ</a></li>
-                        <li><a href="news2.html">Tin tức</a></li>
-                        <li><a href="./introduction.html">Giới thiệu</a></li>
-                        <li><a href="products.html">Sản Phẩm</a></li>
-                        <li><a href="./contact.html">Liên hệ</a></li>
-                        <li><a href="account.html">Tài khoản</a></li>
+                        <li><a asp-controller="Post" asp-action="Index">Tin tức</a></li>
+                        <li><a asp-controller="Home" asp-action="Intruduction">Giới thiệu</a></li>
+                        <li><a asp-controller="Product" asp-action="Index">Sản Phẩm</a></li>
+                        <li><a asp-controller="Home" asp-action="Contact">Liên hệ</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a asp-controller="Home" asp-action="Profile">@User.Identity.Name</a></li>
+                            <li><a asp-controller="Home" asp-action="Logout">Đăng xuất</a></li>
+                        }
+                        <li><a asp-controller="Home" asp-action="Login">Tài khoản</a></li>
                     </ul>
                 </nav>
-                <a href="cart.html"><img src="~/assets/images/cart.png" width="30px" height="30px"></a>
-                <img src="~/assets/images/menu.png" class="menu-icon"
-                     onclick="menutoggle()">
+                <a href="#"><img src="~/assets/images/cart.png" width="30px" height="30px"></a>
+                <img src="~/assets/images/menu.png" class="menu-icon" onclick="menutoggle()">
             </div>
-            <div class="row">
-                <div class="col-2">
-                    <h1>"VINFAST" <br>Mãnh liệt tinh thần Việt Nam</h1>
-                    <p>
-                        Luôn đem đến cho Khách hàng những trải nghiệm thú vị, thân thiện, tin tưởng
-                        <br>mang đến sự thuận tiện và thái độ phục vụ đẳng cấp “5 sao”
-                        để mang đến sự hài lòng cao nhất cho khách hàng.
-                    </p>
-                    <a href="news2.html" class="btn">Khám phá ngay &#8594;</a>
-                </div>
-                <div class="col-2">
-                    <img src="~/assets/images/car-president/CE11 (1).png">
-                </div>
-            </div>
+            @RenderSection("Content", required: false)
         </div>
     </div>
 
-    <!-- ------------- featured categorries ---------------- -->
-    <div class="categories">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <img src="~/assets//images/car-president/CE12.png">
-                </div>
-                <div class="col-3">
-                    <img src="~/assets//images/car-lux-sa/CE15.png">
-                </div>
-                <div class="col-3">
-                    <img src="~/assets//images/car-lux-a/CE16.png">
-                </div>
 
-            </div>
-        </div>
-
-    </div>
     <!-- ------------- featured products ---------------- -->
     @RenderBody()
     <!-- footer -->
@@ -122,4 +100,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Web.VinFast.Models.Post>
+<!-- Main News -->
+<div class="blog">
+    <h1>Tin Tức</h1>
+</div>
+<div class="row">
+    <div class="left-column">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <h2>@item.Title</h2>
+                <h5>@item.User.Name, @item.CreatedDate</h5>
+                <img src="@item.Image" alt="@item.Title" />
+                <p>
+                    @item.Content.Substring(0,50)
+                </p>
+                <p>
+                    <button type="button" class="btn">
+                        <a asp-action="Detail" asp-controller="Post" asp-route-id="@item.Id">
+                            Đọc tiếp
+                        </a>
+                    </button>
+                </p>
+            </div>
+        }
+
+
+    </div>
+
+    <div class="right-column">
+        @if (ViewBag.PostHot != null)
+        {
+            @foreach (var item in ViewBag.PostHot)
+            {
+                <div class="card">
+                    <h2>@item.Title</h2>
+                    <img src="@item.Image" alt="me" />
+                    <p>@item.Content.Substring(0,50) </p>
+                </div>
+            }
+        }
+
+        @* <div class="card">
+        <h3>Hình ảnh phổ biến</h3>
+        <img src="./images/popular-blog1.jpg" alt="popular" />
+        <img src="./images/popular-blog3.jpg" alt="popular" />
+        <img src="./images/popular-blog2.jpg" alt="popular" />
+        </div>*@
+    </div>
+</div>
